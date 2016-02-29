@@ -11,7 +11,7 @@ mkf = time.strftime('%Y-%m-%d'+'.txt')
 ctim = time.strftime('%H:%M:%S')
 xstim = time.strftime ('%H')
 fztim = time.strftime ('%M')
-datafile= open('\\\\theone\\70gx\\'+mkf,'a+') 
+datafile= open('\\\\server\\gx\\'+mkf,'a+') 
 
 '''
 def taskkill():
@@ -35,7 +35,7 @@ def taskkill():
 	
 def dc():
 
-    if ( int(xstim) == 10  and  int(fztim)>45 ):
+    if ( int(xstim) <= 10  and  int(fztim)>45 ):
         easygui.msgbox("请调整成为北京时间，时区为UTC+08:00","上午10:45以后不点餐")        
         sys.exit()          
     
@@ -76,7 +76,7 @@ def dc():
 
 def seemenu():
       time.sleep(5)
-      copy='echo d | xcopy \\\\theone\\gx\\tu c:\\menu /D /S /Y /E /Q' #复制共享的图片菜单
+      copy='echo d | xcopy \\\\server\\gx\\tu c:\\menu /D /S /Y /E /Q' #复制共享的图片菜单
       view='rundll32.exe c:\\windows\\System32\\shimgvw.dll,ImageView_Fullscreen c:\\menu\\img9.jpg'
       n=os.system(copy)
       if n !=0:
@@ -94,7 +94,7 @@ def sp():
 #print cmd;
   
        
-if socket.gethostbyname('theone') == '192.168.67.234' :
+if socket.gethostbyname('server') == '192.168.0.254' :
       T = []
       t1 = threading.Thread(target=dc)
       T.append(t1)
@@ -107,7 +107,7 @@ if socket.gethostbyname('theone') == '192.168.67.234' :
           t.start()
       t.join()
 
-elif not socket.gethostbyname('theone') == '192.168.67.234' :
+elif not socket.gethostbyname('server') == '192.168.0.254' :
     easygui.msgbox("网络不存在,请联系管理员","请检查网络")
     sys.exit()
 
