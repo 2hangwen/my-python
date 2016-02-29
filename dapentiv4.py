@@ -4,6 +4,7 @@
 
 cmd=__import__("os")
 stat=cmd.system("ping -c 2 www.dapenti.com > /dev/null 2>&1")
+#这里用到bash的返回特性，用来判断一条命令是否正确执行完毕
 
 if (stat == 512):  
         print("\n\t***请查看网络是否连接***\n")
@@ -22,11 +23,14 @@ html=str(html)
 from datetime import date
 now=date.today()
 now=now.strftime("%y%m%d")
+#将当天日期格式化为字符型
 now="20"+now
+#在字符前添加字符
 #now=int(now)+1
 #ow=str(now)
 
 i=html.count(now)
+#目标网页有关键字即当前日期
 key='ref=(.*) title'
 def tuguaurl(s,n,k1,k2):
     temp=str(s)
