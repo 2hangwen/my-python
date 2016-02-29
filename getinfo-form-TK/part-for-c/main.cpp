@@ -50,7 +50,7 @@ int main(int argc,char* argv[])
     //HWND h=FindWindow(NULL,"dfga");//argv[1]);
 
     //if (h == 0)return 1;
-    //argv[1]="09:34:32"; //×ö²âÊÔÓÃ
+    //argv[1]="09:34:32"; //Ã—Ã¶Â²Ã¢ÃŠÃ”Ã“Ãƒ
     //cout<<argv[1]<<endl;
     sp(argv[1]);
 
